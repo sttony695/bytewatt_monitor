@@ -1,0 +1,33 @@
+{
+  "name": "ByteWatt Energy Monitor",
+  "version": "1.0.0",
+  "slug": "bytewatt_monitor",
+  "description": "Monitor ByteWatt energy system and publish MQTT sensors to Home Assistant",
+  "arch": ["armv7", "armhf", "aarch64", "amd64", "i386"],
+  "startup": "services",
+  "boot": "auto",
+  "host_network": true,
+  "map": ["config:rw"],
+  "build": {
+    "context": ".",
+    "dockerfile": "Dockerfile"
+  },
+  "options": {
+    "mqtt_broker": "192.168.1.148",
+    "mqtt_port": 1883,
+    "mqtt_topic_prefix": "bytewatt",
+    "mqtt_username": "mos",
+    "mqtt_password": "11111111",
+    "system_sn": "25000SB2C3W00028",
+    "station_id": ""
+  },
+  "schema": {
+    "mqtt_broker": "string",
+    "mqtt_port": "integer",
+    "mqtt_topic_prefix": "string",
+    "mqtt_username": "string",
+    "mqtt_password": "string",
+    "system_sn": "string",
+    "station_id": "string"
+  }
+}
